@@ -23,9 +23,9 @@ export default function Card({ character, episodes }) {
   console.log("character: ", character);
   console.log("episodes: ", episodes);
   return (
-    <div className="flex rounded-[30px] overflow-hidden bg-white/10 h-[fit-content]">
+    <div className="flex flex-col md:flex-row rounded-[30px] overflow-hidden bg-white/10 h-[fit-content]">
       <div className="basis-1 grow shrink">
-        <img src={image} alt={name} />
+        <img src={image} alt={name} className="w-[100%]" />
       </div>
       <div className="p-4 basis-1 grow shrink text-white/40 font-bold h-100">
         {showEpisodes ? (

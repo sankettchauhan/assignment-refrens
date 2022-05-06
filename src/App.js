@@ -52,17 +52,21 @@ function App() {
   return (
     <div className="App bg-black/90 text-white">
       <Hero />
-      <div className="grid grid-cols-2 gap-x-8 gap-y-16 px-40 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 md:gap-y-16 px-10 md:px-40 py-10">
         {characters?.map((c, i) => {
           const characterEpisodes = getCharacterEpisodes(c, episodes);
           return <Card key={i} character={c} episodes={characterEpisodes} />;
         })}
       </div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <button onClick={loadCharacters}>load more</button>
-      )}
+      <div className="flex justify-center">
+        <button
+          onClick={loadCharacters}
+          className="px-8 py-2 bg-white text-black uppercase mb-16"
+          disabled={loading}
+        >
+          {loading ? "loading.." : "load more"}
+        </button>
+      </div>
     </div>
   );
 }
